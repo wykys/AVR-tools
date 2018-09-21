@@ -7,7 +7,7 @@
 # target name
 TARGET = DEMO
 # chip
-CPU = atmega328p
+CHIP = atmega328p
 # programmer
 PROG = -c arduino -P /dev/ttyUSB0
 # optimalization
@@ -46,8 +46,8 @@ BIN = $(CP) -O binary -S
 RM = rm -rf
 # python scripts
 SCRIPTS_DIR = .scripts/
-WTR = $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CPU)
-WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CPU) -c
+WTR = $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
+WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) -c
 # avrdude
 AVRDUDE = avrdude -p $(shell $(WTR)) $(PROG)
 
@@ -56,7 +56,7 @@ AVRDUDE = avrdude -p $(shell $(WTR)) $(PROG)
 # build the application
 #######################################
 # compile gcc flags
-MCU = -mmcu=$(CPU)
+MCU = -mmcu=$(CHIP)
 AFLAGS = $(MCU) -Wall $(INC)
 CFLAGS = $(MCU) -Wall -std=c99 $(INC) $(OPT)
 LDFLAGS = $(MCU)  -Wl,-Map=$(BUILD_DIR)/$(TARGET).map -Wl,--cref
@@ -96,7 +96,7 @@ $(BUILD_DIR):
 	@mkdir $@
 # prints memory usage tables
 size:
-	@$(WSZ) -e $(BUILD_DIR)/$(TARGET).elf --mcu=$(CPU)
+	@$(WSZ) -e $(BUILD_DIR)/$(TARGET).elf --mcu=$(CHIP)
 # clean up
 clean:
 	@$(RM) $(BUILD_DIR)
@@ -106,17 +106,12 @@ clean:
 #######################################
 terminal:
 	@$(AVRDUDE) -t
-
 dump_eeprom:
 	@echo "dump eeprom" | $(AVRDUDE) -t
-
 flash:
 	@$(AVRDUDE) -U flash:w:$(BUILD_DIR)/$(TARGET).elf:e
-
 flash_all:
 	@$(AVRDUDE) -U flash:w:$(BUILD_DIR)/$(TARGET).elf:e -U eeprom:w:$(BUILD_DIR)/$(TARGET).elf:e
-
 chip_test:
 	@$(AVRDUDE)
-
 build_and_flash: all flash
