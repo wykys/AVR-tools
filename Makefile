@@ -1,6 +1,7 @@
 # AVR project Makefile
 # wykys 2018
 
+
 ######################################
 # project variables
 ######################################
@@ -19,6 +20,7 @@ SRC = src
 # includes
 INC = -Iinc
 
+
 ######################################
 # source
 ######################################
@@ -26,6 +28,7 @@ INC = -Iinc
 C_SOURCES = $(wildcard $(SRC)/*.c)
 # ASM sources
 ASM_SOURCES = $(wildcard $(SRC)/*.S)
+
 
 #######################################
 # toolchain
@@ -96,10 +99,11 @@ $(BUILD_DIR):
 	@mkdir $@
 # prints memory usage tables
 size:
-	@$(WSZ) -e $(BUILD_DIR)/$(TARGET).elf --mcu=$(CHIP)
+	@$(WSZ) -e $(BUILD_DIR)/$(TARGET).elf
 # clean up
 clean:
 	@$(RM) $(BUILD_DIR)
+
 
 #######################################
 # avrdude
