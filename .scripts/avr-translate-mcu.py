@@ -28,5 +28,5 @@ if __name__ == '__main__':
 
     except NotDefinedMCUError as e:
         print(str(e), file=sys.stderr)
-        Database.print_table(sys.stderr)
+        Database.print_table()
         exit(-1)
