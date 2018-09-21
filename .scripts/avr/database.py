@@ -1,5 +1,4 @@
 import re
-import sys
 import subprocess
 from .conf import mcu_dict
 
@@ -47,27 +46,17 @@ class Database(object):
         else:
             return None
 
-    def print_table(self, print_file=sys.stdout):
-        """table.append('╔{}╗'.format('═'*width))
-        table.append('║{}║'.format(head))
-        table.append('╟{}╢'.format('─'*width))
-        table.append('║{}║'.format(all_width_tag.format(str(all_memory))))
-        table.append('║{}║'.format(use_width_tag.format(str(use_memory))))
-        table.append('║{}║'.format(free_width_tag.format(str(all_memory - use_memory))))
-        table.append('╚{}╝'.format('═'*width))"""
-
+    def print_table(self):
         format = ' ║ {:<18} │ {:<10} │ {:>10} │ {:>10} │ {:>10} ║'
-        print(' ╔{}╤{}╤{}╤{}╤{}╗'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12, file=print_file))
-
+        print(' ╔{}╤{}╤{}╤{}╤{}╗'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12))
         print(format.format(
             'ATMEL NAME',
             'AVRDUDE',
             'RAM',
             'FLASH',
             'EEPROM',
-        ), file=print_file)
-
-        print(' ╠{}╪{}╪{}╪{}╪{}╣'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12, file=print_file))
+        ))
+        print(' ╠{}╪{}╪{}╪{}╪{}╣'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12))
 
         for mcu, info in self.mcu_dict.items():
             print(format.format(
@@ -76,9 +65,9 @@ class Database(object):
                 str(info.ram),
                 str(info.flash),
                 str(info.eeprom) if info.eeprom.value else '',
-            ), file=print_file)
+            ))
 
-        print(' ╚{}╧{}╧{}╧{}╧{}╝'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12, file=print_file))
+        print(' ╚{}╧{}╧{}╧{}╧{}╝'.format('═'*20, '═'*12, '═'*12, '═'*12, '═'*12))
 
 
 Database = Database()
