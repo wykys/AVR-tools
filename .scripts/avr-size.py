@@ -54,10 +54,11 @@ def print_memory(memory):
         print('{}\t{}'.format(name, length))
 
 
-def size_parser(path):
+def size_parser(path_elf, path_size='size'):
     import re
     regex = r'^(\.\S+)\s*(\d+)'
-    result = subprocess.run(['size', '-A', path], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    size = path_size.split()
+    result = subprocess.run([size[0], *size[1:], '-A', path_elf], stdout=subprocess.PIPE).stdout.decode('utf-8')
     return {
         match.group(1): Byte(match.group(2)) for match in re.finditer(
             regex, result, re.MULTILINE
@@ -148,21 +149,30 @@ if __name__ == '__main__':
         default=None,
         help='the name of the microcontroller'
     )
+    parser.add_argument(
+        '-s',
+        '--size',
+        dest='size',
+        action='store',
+        default='size',
+        help='the path to size utility'
+    )
 
     try:
         mcu = Database.get_mcu(parser.parse_args().mcu)
         path_elf = check_elf_path(parser.parse_args().path_elf)
+        path_size = parser.parse_args().size
 
     except NotDefinedMCUError as e:
         print(str(e), file=sys.stderr)
-        Database.print_table(sys.stderr)
+        Database.print_table()
         exit(-1)
 
     except NotExistError as e:
         print(str(e), file=sys.stderr)
         exit(-1)
 
-    size = size_parser(path_elf)
+    size = size_parser(path_elf, path_size)
 
     use_ram = size['.data']
     if '.bss' in size:

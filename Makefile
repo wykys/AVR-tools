@@ -33,24 +33,24 @@ ASM_SOURCES = $(wildcard $(SRC)/*.S)
 #######################################
 # toolchain
 #######################################
-#fixed AVR toolchain bug
-FIXED_LC_ALL = export LC_ALL=C
+SCRIPTS_DIR = .scripts/
+RUN_ANSI_C = $(SCRIPTS_DIR)run-ansi-c.sh
+# atmel tools
 TOOLCHAIN_PATH = /opt/avr8-gnu-toolchain-linux_x86_64
 BINPATH = $(TOOLCHAIN_PATH)/bin/
 PREFIX = avr-
-CC = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)gcc -fdiagnostics-color=always
-AS = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)gcc -fdiagnostics-color=always -x assembler-with-cpp
-CP = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)objcopy
-DP = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)objdump
-AR = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)ar
-SZ = $(FIXED_LC_ALL) && $(BINPATH)$(PREFIX)size
+CC = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)gcc -fdiagnostics-color=always
+AS = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)gcc -fdiagnostics-color=always -x assembler-with-cpp
+CP = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)objcopy
+DP = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)objdump
+AR = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)ar
+SZ = $(RUN_ANSI_C) $(BINPATH)$(PREFIX)size
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 RM = rm -rf
-# python scripts
-SCRIPTS_DIR = .scripts/
+# wykys scripts
 WTR = $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
-WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) -c
+WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --size="$(SZ)" --color
 # avrdude
 AVRDUDE = avrdude -p $(shell $(WTR)) $(PROG)
 
