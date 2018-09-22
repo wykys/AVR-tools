@@ -23,3 +23,7 @@ sudo mv $AVR_TOOLCHAIN_DIR $AVR_TOOLCHAIN_INSTALL_DIR
 
 # install required packages
 sudo apt-get install python3 python3-serial avrdude make git
+
+
+# clone AVR-AVR-tools repository
+git clone https://github.com/wykys/AVR-tools.git
