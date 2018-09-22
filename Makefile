@@ -9,8 +9,6 @@
 TARGET = DEMO
 # chip
 CHIP = atmega328p
-# programmer
-PROG = -c arduino -P /dev/ttyUSB0
 # optimalization
 OPT = -Og
 # build dir
@@ -51,8 +49,9 @@ RM = rm -rf
 # wykys scripts
 WTR = $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
 WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --size="$(SZ)" --color
+WFS = $(SCRIPTS_DIR)find-serial.py --device=Serial
 # avrdude
-AVRDUDE = avrdude -p $(shell $(WTR)) $(PROG)
+AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
 
 
 #######################################
