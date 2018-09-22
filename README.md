@@ -1,7 +1,7 @@
 # AVR-tools
 Tools for development of AVR microcontrollers.
 
-## Instalation
+## Installation
 ### For Debian Ubuntu and their derivatives
 Just enter the following command into terminal for download and run shell installation script, which automatically installs the necessary tools.
 ```bash
