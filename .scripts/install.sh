@@ -28,6 +28,6 @@ sudo apt-get install python3 python3-serial avrdude make git
 # clone AVR-AVR-tools repository for test build
 git clone https://github.com/wykys/AVR-tools.git
 cd AVR-tools
-make
+make && echo "Instalation is complete, toolchain is ready you can clone AVR-tools repo ;)"
 cd ..
 rm -rf AVR-tools
