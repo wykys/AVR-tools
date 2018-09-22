@@ -25,5 +25,9 @@ sudo mv $AVR_TOOLCHAIN_DIR $AVR_TOOLCHAIN_INSTALL_DIR
 sudo apt-get install python3 python3-serial avrdude make git
 
 
-# clone AVR-AVR-tools repository
+# clone AVR-AVR-tools repository for test build
 git clone https://github.com/wykys/AVR-tools.git
+cd AVR-tools
+make
+cd ..
+rm -rf AVR-tools
