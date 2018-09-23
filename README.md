@@ -3,7 +3,7 @@ Tools for development of AVR microcontrollers.
 
 ## Project wizard
 ### First step
-Open the terminal and go to path where you want to create your AVR project. Use the `cd` command to move.
+Open the terminal and go to a path where you want to create your AVR project. Use the `cd` command to change directory.
 
 ### Getting the project template
 Getting the template is easy. Just clone this repository.
@@ -33,12 +33,12 @@ code .
 ```
 
 ### Makefile settings
-`Makefile` describes the build of the project. It also allows you to run auxiliary tools such as programming the target processor or analyzing compilation results.
+`Makefile` describes the build of a project. It also allows you to run auxiliary tools used for programming the target processor, analyzing compilation results and so on.
 
-The `Makefile` file is located in the root directory of your project. Using a text editor, you can edit the variables as required by the application.
+The `Makefile` file is located in the root directory of your project. Using a text editor, you can edit variables as required by the application.
 
 #### Project name
-It affects the names of the generated files.
+It affects names of generated files.
 ```makefile
 # find the following line
 TARGET = DEMO
@@ -47,7 +47,7 @@ TARGET = the_name_of_your_project
 ```
 
 #### Target microcontroller
-The names of available microcontrollers are available [here](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html).
+The names of available microcontrollers are shown [here](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html).
 ```makefile
 # find the following line
 CHIP = atmega328p
@@ -56,7 +56,7 @@ CHIP = the_name_of_your_chip
 ```
 
 #### Code size optimization
-It affects the size and speed of the application.
+It affects size and speed of the application.
 
 | __OPT__ |  __DESCRIPTION__  |
 |---------|-------------------|
@@ -74,7 +74,7 @@ OPT = required_optimization
 ```
 
 #### Changing the programmer
-List of supported programmers `avrdude` is [here](https://www.nongnu.org/avrdude/user-manual/avrdude_4.html)
+List of supported `avrdude` programmers is [here](https://www.nongnu.org/avrdude/user-manual/avrdude_4.html)
 ```makefile
 # find the following line
 AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
@@ -83,8 +83,8 @@ AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
 AVRDUDE = avrdude -p $(shell $(WTR)) -c your_programmer -P programmer_port
 ```
 
-### Use `make`
-`Makefile` allows compilation, programming and debugging applications.
+### Usage of `make`
+`Makefile` allows compilation, programming and debugging of applications.
 ```bash
 # compiling the project, equivalen to make
 make all
@@ -109,8 +109,8 @@ make chip_test
 ```bash
 .
 ├── inc
-│   ├── settings.h
-│   └── uart.h
+│   ├── settings.h
+│   └── uart.h
 ├── LICENSE
 ├── Makefile
 ├── README.md
@@ -121,11 +121,11 @@ make chip_test
 
 2 directories, 8 files
 ```
-The source files `*.c` and `*.S` are located in the `src/` folder. Header files `*.h` are located in the `inc/` folder. The compilation outputs (binary files `*.hex`, `*.elf`, code disassembler [`*.lss`, `*.lst`], dependency files `*.d`, batch files `*.o`, map file `*.map`) are located in the `$(BUILD_DIR)` folder. Project scripts are located in the hidden folder `.scripts`.
+Source files `*.c` and `*.S` are located in the `src/` folder. Header files `*.h` are located in the `inc/` folder. The compilation outputs (binary files `*.hex`, `*.elf`, code disassembler [`*.lss`, `*.lst`], dependency files `*.d`, batch files `*.o`, map file `*.map`) are located in the `$(BUILD_DIR)` folder. Project scripts are located in the hidden folder `.scripts`.
 
 
 ### Change of frequency
-The `F_CPU` [Hz] constant used for delay functions is defined in the `settings.h` file. The `settings.h` file must be plugged into all the files in which you want to use the constant. You can also add additional constants that affect the behavior of the entire program.
+The `F_CPU` [Hz] constant used for delay functions is defined in the `settings.h` file. The `settings.h` file must be plugged into all files in which you want to use the constant. You can also add additional constants that affect the behavior of the entire program.
 
 ```C
 #ifndef F_CPU
