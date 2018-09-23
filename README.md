@@ -73,9 +73,10 @@ OPT = -Os
 OPT = required_optimization
 ```
 
-### Compilation and programming
+### Use `make`
+`Makefile` allows compilation, programming and debugging applications.
 ```bash
-#
+# compiling the project, equivalen to make
 make all
 # flash content
 make flash
