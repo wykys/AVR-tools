@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # wykys 2018
-# The script parses the memory information from the linker script and
-# the size program, and then displays them in a more readable form.
+# The script combines memory information from
+# the AVR database and the utility size parsing output.
+# Memory and size information displays in a more readable form.
 
 import argparse
 import sys
@@ -113,9 +114,8 @@ def create_table(name, use_memory, all_memory, color=True):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='avr-size',
-        description='The script parses the memory information from the linker'
-        'script and the size program, and then displays them in a more'
-        'readable form.'
+        description='The script combines memory information from the AVR'
+        ' database and the utility size parsing output. Memory and size' ' information displays in a more readable form.'
     )
     parser.add_argument(
         '-e',

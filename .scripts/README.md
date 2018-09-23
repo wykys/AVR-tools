@@ -19,13 +19,11 @@ Te script can automatically find a binary .elf, if the two folders do not exceed
 ```
 
 ### Arguments
-``
 `.scripts/avr-size.py -h`
 ```
 usage: avr-size [-h] [-e PATH_ELF] [-c] [-v] [-m MCU] [-s SIZE]
 
-The script parses the memory information from the linkerscript and the size
-program, and then displays them in a morereadable form.
+The script combines memory information from the AVR database and the utility size parsing output. Memory and size information displays in a more readable form.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -37,3 +35,5 @@ optional arguments:
   -s SIZE, --size SIZE  the path to size utility
 
 ```
+
+## avr-translate-mcu
