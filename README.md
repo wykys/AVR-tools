@@ -144,6 +144,6 @@ sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/
 With git you can get a newer version, but if you already have a project, I recommend that you make a backup first because there may be a collision between the files.
 
 ```bash
-# got to the project folder and use this command
+# go to the project folder and use this command
 git pull
 ```
