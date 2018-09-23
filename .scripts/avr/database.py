@@ -1,3 +1,6 @@
+# database of microcontrollers
+# wykys 2018
+
 import re
 import subprocess
 from .conf import mcu_dict

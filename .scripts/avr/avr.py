@@ -1,3 +1,6 @@
+# AVR info object
+# wykys 2018
+
 from byte import Byte
 
 

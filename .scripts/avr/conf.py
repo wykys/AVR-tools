@@ -1,3 +1,6 @@
+# dictionary microcontrollers
+# wykys 2018
+
 from avr import InfoAVR
 from collections import OrderedDict
 

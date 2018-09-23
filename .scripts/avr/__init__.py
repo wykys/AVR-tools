@@ -1,3 +1,6 @@
+# AVR package
+# wykys 2018
+
 from .avr import InfoAVR
 from .database import (
     NotDefinedMCUError,
