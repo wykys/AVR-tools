@@ -140,5 +140,10 @@ Just enter the following command into terminal for download and run shell instal
 sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/install.sh -O -)"
 ```
 
-## Scripts
-These scripts are designed to simplify the development of AVR applications. They are described in separate [README](https://github.com/wykys/AVR-tools/tree/master/.scripts).
+## Updates
+With git you can get a newer version, but if you already have a project, I recommend that you make a backup first because there may be a collision between the files.
+
+```bash
+# got to the project folder and use this command
+git pull
+```
