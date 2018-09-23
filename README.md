@@ -133,6 +133,9 @@ The `F_CPU` [Hz] constant used for delay functions is defined in the `settings.h
 #endif
 ```
 
+## Scripts
+These scripts are designed to simplify the development of AVR applications. They are described in separate [README](https://github.com/wykys/AVR-tools/tree/master/.scripts).
+
 ## Installation
 ### For Debian Ubuntu and their derivatives
 Just enter the following command into terminal for download and run shell installation script, which automatically installs the necessary tools.
