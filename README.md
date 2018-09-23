@@ -73,6 +73,16 @@ OPT = -Os
 OPT = required_optimization
 ```
 
+#### Changing the programmer
+List of supported programmers `avrdude` is [here](https://www.nongnu.org/avrdude/user-manual/avrdude_4.html)
+```makefile
+# find the following line
+AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
+# change AVRDUDE
+# port is required only for some programmers
+AVRDUDE = avrdude -p $(shell $(WTR)) -c your_programmer -P programmer_port
+```
+
 ### Use `make`
 `Makefile` allows compilation, programming and debugging applications.
 ```bash
