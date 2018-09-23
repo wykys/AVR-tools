@@ -108,21 +108,18 @@ make chip_test
 ### File template hierarchy
 ```bash
 .
-├── bin
-│   └── Makefile
 ├── inc
-│   ├── settings.h
-│   └── uart.h
+│   ├── settings.h
+│   └── uart.h
 ├── LICENSE
 ├── Makefile
 ├── README.md
 └── src
-    ├── asm-fnc.S
     ├── main.c
     ├── rand.S
     └── uart.c
 
-3 directories, 10 files
+2 directories, 8 files
 ```
 The source files `*.c` and `*.S` are located in the `src/` folder. Header files `*.h` are located in the `inc/` folder. The compilation outputs (binary files `*.hex`, `*.elf`, code disassembler [`*.lss`, `*.lst`], dependency files `*.d`, batch files `*.o`, map file `*.map`) are located in the `$(BUILD_DIR)` folder. Project scripts are located in the hidden folder `.scripts`
 
