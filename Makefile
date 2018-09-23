@@ -10,7 +10,7 @@ TARGET = DEMO
 # chip
 CHIP = atmega328p
 # optimalization
-OPT = -Og
+OPT = -Os
 # build dir
 BUILD_DIR = build
 # source dir
