@@ -104,6 +104,38 @@ make flash_all
 make chip_test
 ```
 
+## Application notes
+### File template hierarchy
+```bash
+.
+├── bin
+│   └── Makefile
+├── inc
+│   ├── settings.h
+│   └── uart.h
+├── LICENSE
+├── Makefile
+├── README.md
+└── src
+    ├── asm-fnc.S
+    ├── main.c
+    ├── rand.S
+    └── uart.c
+
+3 directories, 10 files
+```
+The source files `*.c` and `*.S` are located in the `src/` folder. Header files `*.h` are located in the `inc/` folder. The compilation outputs (binary files `*.hex`, `*.elf`, code disassembler [`*.lss`, `*.lst`], dependency files `*.d`, batch files `*.o`, map file `*.map`) are located in the `$(BUILD_DIR)` folder. Project scripts are located in the hidden folder `.scripts`
+
+
+### Change of frequency
+The `F_CPU` [Hz] constant used for delay functions is defined in the `settings.h` file. The `settings.h` file must be plugged into all the files in which you want to use the constant. You can also add additional constants that affect the behavior of the entire program.
+
+```C
+#ifndef F_CPU
+  #define F_CPU 16000000UL // Hz
+#endif
+```
+
 ## Installation
 ### For Debian Ubuntu and their derivatives
 Just enter the following command into terminal for download and run shell installation script, which automatically installs the necessary tools.
