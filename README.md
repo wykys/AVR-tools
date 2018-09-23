@@ -139,3 +139,6 @@ Just enter the following command into terminal for download and run shell instal
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/install.sh -O -)"
 ```
+
+## Scripts
+These scripts are designed to simplify the development of AVR applications. They are described in separate [README](https://github.com/wykys/AVR-tools/tree/master/.scripts).
