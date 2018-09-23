@@ -7,9 +7,9 @@ import argparse
 import sys
 import subprocess
 from pathlib import Path
-from colors import Colors
 from byte import Byte
 from avr import Database, NotDefinedMCUError
+from colorama import Back, Fore, Style
 
 
 class NotExistError(IOError):
@@ -88,16 +88,16 @@ def create_table(name, use_memory, all_memory, color=True):
 
     if color:
         if percent < 60:
-            color = Colors.bg.green + Colors.fg.darkgrey + Colors.bold
+            color = Back.GREEN + Fore.WHITE + Style.BRIGHT
         elif percent < 80:
-            color = Colors.bg.orange + Colors.fg.black + Colors.bold
+            color = Back.LIGHTRED_EX + Fore.BLACK + Style.BRIGHT
         else:
-            color = Colors.bg.red + Colors.fg.black + Colors.bold
+            color = Back.RED + Fore.BLACK + Style.BRIGHT
     else:
-        color = Colors.bold
+        color = Style.BRIGHT
 
     head = head_width_tag.format(head_str)
-    head = ''.join((color, head[:bar], Colors.reset + Colors.bold, head[bar:], Colors.reset))
+    head = ''.join((color, head[:bar], Style.RESET_ALL + Style.BRIGHT, head[bar:], Style.RESET_ALL))
 
     table = []
     table.append('╔{}╗'.format('═'*width))
