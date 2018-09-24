@@ -59,7 +59,10 @@ def size_parser(path_elf, path_size='size'):
     import re
     regex = r'^(\.\S+)\s*(\d+)'
     size = path_size.split()
-    result = subprocess.run([size[0], *size[1:], '-A', path_elf], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    result = subprocess.run(
+        [size[0], *size[1:], '-A', str(path_elf)],
+        stdout=subprocess.PIPE,
+    ).stdout.decode('utf-8')
     return {
         match.group(1): Byte(match.group(2)) for match in re.finditer(
             regex, result, re.MULTILINE
