@@ -139,7 +139,7 @@ These scripts are designed to simplify the development of AVR applications. They
 ## Installation
 To run `AVR-tools` it is required to install these packages:
 | __NAME__ | __LINK__ |
-|----------|-----------------|
+| --- | --- |
 | `git` | https://git-scm.com/ |
 | `make` | https://www.gnu.org/software/make/ |
 | `avrdude` | http://savannah.nongnu.org/projects/avrdude |
