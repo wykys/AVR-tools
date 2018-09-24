@@ -134,11 +134,22 @@ The `F_CPU` [Hz] constant used for delay functions is defined in the `settings.h
 ```
 
 ## Scripts
-These scripts are designed to simplify the development of AVR applications. They are described in separate [README](https://github.com/wykys/AVR-tools/tree/master/.scripts).
+These scripts are designed to simplify the development of AVR applications. They are described in a separate [README](https://github.com/wykys/AVR-tools/tree/master/.scripts).
 
 ## Installation
+To run `AVR-tools` it is required to install these packages:
+| __NAME__ | __LINK__ |
+|----------|-----------------|
+| `git` | https://git-scm.com/ |
+| `make` | https://www.gnu.org/software/make/ |
+| `avrdude` | http://savannah.nongnu.org/projects/avrdude |
+| `python3` | https://www.python.org/ |
+| `python3-serial` | https://github.com/pyserial/pyserial |
+| `python3-colorama` | https://github.com/tartley/colorama |
+| `atmel-avr-toolchain` | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
+
 ### For Debian Ubuntu and their derivatives
-Just enter the following command into terminal for download and run shell installation script, which automatically installs the necessary tools.
+Just enter the following command into the terminal for download and run shell installation script, which automatically installs the necessary tools.
 ```bash
 sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/install.sh -O -)"
 ```
