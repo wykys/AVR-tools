@@ -138,15 +138,16 @@ These scripts are designed to simplify the development of AVR applications. They
 
 ## Installation
 To run `AVR-tools` it is required to install these packages:
+
 | __NAME__ | __LINK__ |
-| --- | --- |
-| git | https://git-scm.com/ |
-| make | https://www.gnu.org/software/make/ |
-| avrdude | http://savannah.nongnu.org/projects/avrdude |
-| python3 | https://www.python.org/ |
-| python3 serial | https://github.com/pyserial/pyserial |
-| python3 colorama | https://github.com/tartley/colorama |
-| atmel avr toolchain | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
+|--- | --- |
+| `git` | https://git-scm.com/ |
+| `make` | https://www.gnu.org/software/make/ |
+| `avrdude` | http://savannah.nongnu.org/projects/avrdude |
+| `python3` | https://www.python.org/ |
+| `python3-serial` | https://github.com/pyserial/pyserial |
+| `python3-colorama` | https://github.com/tartley/colorama |
+| `atmel-avr-toolchain` | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
 
 ### For Debian Ubuntu and their derivatives
 Just enter the following command into the terminal for download and run shell installation script, which automatically installs the necessary tools.
