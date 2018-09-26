@@ -159,11 +159,11 @@ sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/
 
 | __NAME__ | __VERSION__ | __RESULT__ |
 |:--- | ---: | :---: |
-| Linux Mint | 19 | [x] |
-| Linux Mint | 18.3 | [x] |
-| Xubuntu | 16.04 | [x] |
-| Debian | 9.5.0 | [x] |
-| Windows | 10 | [] |
+| Linux Mint | 19 | OK |
+| Linux Mint | 18.3 | OK |
+| Xubuntu | 16.04 | OK |
+| Debian | 9.5.0 | OK |
+| Windows | 10 | ? |
 
 
 ## Updates
