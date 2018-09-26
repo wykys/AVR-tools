@@ -112,6 +112,52 @@ ELF Header:
 ### Arguments
 All the arguments passed to this script are run in the system shell.
 
+## venv
+If it exists, it will remove the old python virtual environment. Creates a new virtual python environment and installs packages from the `requirements.txt` file.
+
+### Demo
+`.scripts/venv.sh`
+```
+remove old venv
+create new venv
+activate venv
+upgrade pip
+Collecting pip
+  Using cached https://files.pythonhosted.org/packages/5f/25/e52d3f31441505a5f3af41213346e5b6c221c9e086a166f3703d2ddaf940/pip-18.0-py2.py3-none-any.whl
+Installing collected packages: pip
+  Found existing installation: pip 9.0.1
+    Uninstalling pip-9.0.1:
+      Successfully uninstalled pip-9.0.1
+Successfully installed pip-18.0
+install modules from requirements
+Collecting colorama>=0.3.9 (from -r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/db/c8/7dcf9dbcb22429512708fe3a547f8b6101c0d02137acbd892505aee57adf/colorama-0.3.9-py2.py3-none-any.whl
+Collecting pyserial>=3.4 (from -r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/0d/e4/2a744dd9e3be04a0c0907414e2a01a7c88bb3915cbe3c8cc06e209f59c30/pyserial-3.4-py2.py3-none-any.whl
+Installing collected packages: colorama, pyserial
+Successfully installed colorama-0.3.9 pyserial-3.4
+installed modules
+colorama==0.3.9
+pkg-resources==0.0.0
+pyserial==3.4
+```
+
+### Arguments
+He has no arguments.
+
+
+## run-python
+It runs a python script in a virtual environment and passes arguments if the environment does not exist, it runs the script `venv.sh` that creates it.
+
+### Demo
+`.scripts/run-python.sh .scripts/avr-translate-mcu.py -m attiny13`
+```
+t13
+```
+
+### Arguments
+All the arguments passed to this script are run in the system shell with activate python virtual environment.
+
 ## install (for Debian Ubuntu and their derivatives)
 Just enter the following command into terminal for download and run shell installation script, which automatically installs the necessary tools.
 
