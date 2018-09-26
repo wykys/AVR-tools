@@ -146,6 +146,7 @@ To run `AVR-tools` it is required to install these packages:
 | `avrdude` | http://savannah.nongnu.org/projects/avrdude |
 | `python3` | https://www.python.org/ |
 | `python3-pip` | https://docs.python.org/3/installing/index.html |
+| `python3-venv` | https://docs.python.org/3/library/venv.html |
 | `atmel-avr-toolchain` | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
 
 ### For Debian Ubuntu and their derivatives
