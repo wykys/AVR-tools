@@ -145,8 +145,7 @@ To run `AVR-tools` it is required to install these packages:
 | `make` | https://www.gnu.org/software/make/ |
 | `avrdude` | http://savannah.nongnu.org/projects/avrdude |
 | `python3` | https://www.python.org/ |
-| `python3-serial` | https://github.com/pyserial/pyserial |
-| `python3-colorama` | https://github.com/tartley/colorama |
+| `python3-pip` | https://docs.python.org/3/installing/index.html |
 | `atmel-avr-toolchain` | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
 
 ### For Debian Ubuntu and their derivatives

@@ -23,7 +23,7 @@ sudo mv $AVR_TOOLCHAIN_DIR $AVR_TOOLCHAIN_INSTALL_DIR
 
 # install required packages
 echo "Installing packages"
-sudo apt-get install python3 avrdude make git
+sudo apt-get install python3 python3-pip avrdude make git
 
 
 # clone AVR-tools repository for test build
