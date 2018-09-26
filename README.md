@@ -155,6 +155,17 @@ Just enter the following command into the terminal for download and run shell in
 sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/install.sh -O -)"
 ```
 
+### Tested on operating systems
+
+| __NAME__ | __VERSION__ | __RESULT__ |
+|:--- | ---: | :---: |
+| Linux Mint | 19 | [x] |
+| Linux Mint | 18.3 | [x] |
+| Xubuntu | 16.04 | [x] |
+| Debian | 9.5.0 | [x] |
+| Windows | 10 | [] |
+
+
 ## Updates
 With git you can get a newer version, but if you already have a project, I recommend that you make a backup first because there may be a collision between the files.
 
