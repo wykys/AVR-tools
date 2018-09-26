@@ -22,10 +22,11 @@ sudo mv $AVR_TOOLCHAIN_DIR $AVR_TOOLCHAIN_INSTALL_DIR
 
 
 # install required packages
-sudo apt-get install python3 python3-serial python3-colorama avrdude make git
+echo "Installing packages"
+sudo apt-get install python3 avrdude make git
 
 
-# clone AVR-AVR-tools repository for test build
+# clone AVR-tools repository for test build
 git clone https://github.com/wykys/AVR-tools.git
 cd AVR-tools
 make && echo "Instalation is complete, toolchain is ready you can clone AVR-tools repo ;)"

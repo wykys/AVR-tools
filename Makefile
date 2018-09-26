@@ -33,6 +33,7 @@ ASM_SOURCES = $(wildcard $(SRC)/*.S)
 #######################################
 SCRIPTS_DIR = .scripts/
 RUN_ANSI_C = $(SCRIPTS_DIR)run-ansi-c.sh
+RUN_PYTHON = $(SCRIPTS_DIR)run-python.sh
 # atmel tools
 TOOLCHAIN_PATH = /opt/avr8-gnu-toolchain-linux_x86_64
 BINPATH = $(TOOLCHAIN_PATH)/bin/
@@ -47,12 +48,11 @@ HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
 RM = rm -rf
 # wykys scripts
-WTR = $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
-WSZ = $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --size="$(SZ)" --color
-WFS = $(SCRIPTS_DIR)find-serial.py --device=Serial
+WTR = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
+WSZ = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --color --size="$(SZ)"
+WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py --device=Serial
 # avrdude
 AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
-
 
 #######################################
 # build the application

@@ -3,4 +3,4 @@
 # wykys 2018
 
 export LC_ALL=C
-$@
+"$@"

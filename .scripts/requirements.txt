@@ -1,2 +1,2 @@
-colorama
-pyserial
+colorama>=0.3.9
+pyserial>=3.4
