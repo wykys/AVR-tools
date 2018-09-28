@@ -10,7 +10,8 @@ import subprocess
 from pathlib import Path
 from byte import Byte
 from avr import Database, NotDefinedMCUError
-from colorama import Back, Fore, Style
+from colorama import Back, Fore, Style, init
+init()
 
 
 class NotExistError(IOError):
