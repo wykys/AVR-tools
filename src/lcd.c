@@ -194,7 +194,7 @@ static void lcd_write(uint8_t data, uint8_t rs)
     }
 } /* lcd_write */
 
-#else  /* if LCD_IO_MODE */
+#else /* if LCD_IO_MODE */
 # define lcd_write(d, rs) if (rs) *(volatile uint8_t *) (LCD_IO_DATA) = d; else *(volatile uint8_t *) (LCD_IO_FUNCTION) = d;
 /* rs==0 -> write instruction to LCD_IO_FUNCTION */
 /* rs==1 -> write data to LCD_IO_DATA */
@@ -268,7 +268,7 @@ static uint8_t lcd_read(uint8_t rs)
     return data;
 } /* lcd_read */
 
-#else  /* if LCD_IO_MODE */
+#else /* if LCD_IO_MODE */
 # define lcd_read(rs) (rs) ? *(volatile uint8_t *) (LCD_IO_DATA + LCD_IO_READ) : *(volatile uint8_t *) (LCD_IO_FUNCTION + LCD_IO_READ)
 /* rs==0 -> read instruction from LCD_IO_FUNCTION */
 /* rs==1 -> read data from LCD_IO_DATA */
@@ -300,7 +300,7 @@ static uint8_t lcd_waitbusy(void)
 *************************************************************************/
 static inline void lcd_newline(uint8_t pos)
 {
-    register uint8_t addressCounter;
+    register uint8_t addressCounter = 0;
 
     #if LCD_LINES == 1
     addressCounter = 0;
@@ -331,7 +331,7 @@ static inline void lcd_newline(uint8_t pos)
     else
         addressCounter = LCD_START_LINE1;
     # endif /* if KS0073_4LINES_MODE */
-    #endif /* if LCD_LINES == 4 */
+    #endif  /* if LCD_LINES == 4 */
     lcd_command((1 << LCD_DDRAM) + addressCounter);
 }/* lcd_newline */
 
@@ -561,7 +561,7 @@ void lcd_init(uint8_t dispAttr)
     delay(LCD_DELAY_INIT_4BIT); /* some displays need this additional delay */
 
     /* from now the LCD only accepts 4 bit I/O, we can use lcd_command() */
-    #else  /* if LCD_IO_MODE */
+    #else /* if LCD_IO_MODE */
 
     /*
      * Initialize LCD to 8 bit memory mapped mode
