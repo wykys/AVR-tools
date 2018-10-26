@@ -18,6 +18,9 @@ SRC = src
 # includes
 INC = -Iinc
 
+PROGRAMMER=arduino
+#PROGRAMMER=usbasp
+
 
 ######################################
 # source
@@ -52,7 +55,7 @@ WTR = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
 WSZ = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --color --size="$(SZ)"
 WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py --device=Serial
 # avrdude
-AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
+AVRDUDE = avrdude -p $(shell $(WTR)) -c $(PROGRAMMER) -P $(shell $(WFS))
 
 #######################################
 # build the application
@@ -65,9 +68,6 @@ LDFLAGS = $(MCU)  -Wl,-Map=$(BUILD_DIR)/$(TARGET).map -Wl,--cref
 
 # generate dependency information
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"
-
-# Add Peter Fleury's LCD library definition file
-CFLAGS += -D_LCD_DEFINITIONS_FILE
 
 # list of objects
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
@@ -121,3 +121,4 @@ flash_all:
 chip_test:
 	@$(AVRDUDE)
 build_and_flash: all flash
+install: all flash
