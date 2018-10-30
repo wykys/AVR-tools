@@ -1,5 +1,5 @@
-#ifndef D_LCD_DEFINITIONS_H
-#define D_LCD_DEFINITIONS_H
+#ifndef LCD_DEFINITIONS_H
+#define LCD_DEFINITIONS_H
 
 /* Arduino Uno LCD Keypad Shield */
 #define LCD_PORT      PORTD /* LCD data port */
@@ -13,4 +13,4 @@
 #define LCD_E_PIN     PB1   /* Enable pin */
 /* R/W pin is connected to GND */
 
-#endif // ifndef D_LCD_DEFINITIONS_H
+#endif // ifndef LCD_DEFINITIONS_H
