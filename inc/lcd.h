@@ -55,12 +55,9 @@
 
 /*
  * LCD and target specific definitions below can be defined in a separate include file with name lcd_definitions.h instead modifying this file
- * by adding -D_LCD_DEFINITIONS_FILE to the CDEFS section in the Makefile
  * All definitions added to the file lcd_definitions.h will override the default definitions from lcd.h
  */
-#ifdef _LCD_DEFINITIONS_FILE
-# include "lcd_definitions.h"
-#endif
+#include "lcd_definitions.h"
 
 
 /**

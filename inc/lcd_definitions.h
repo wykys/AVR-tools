@@ -1,8 +1,5 @@
-/*
- * All definitions added to lcd_definitions.h will override the default
- * definitions from lcd.h. This file is included by adding
- * -D_LCD_DEFINITIONS_FILE to the CDEFS or CFLAGS section in the Makefile
- */
+#ifndef D_LCD_DEFINITIONS_H
+#define D_LCD_DEFINITIONS_H
 
 /* Arduino Uno LCD Keypad Shield */
 #define LCD_PORT      PORTD /* LCD data port */
@@ -15,3 +12,5 @@
 #define LCD_E_PORT    PORTB /* Enable port */
 #define LCD_E_PIN     PB1   /* Enable pin */
 /* R/W pin is connected to GND */
+
+#endif // ifndef D_LCD_DEFINITIONS_H
