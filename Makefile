@@ -51,6 +51,8 @@ RM = rm -rf
 WTR = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
 WSZ = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --color --size="$(SZ)"
 WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py --device=Serial
+# miniterm
+MINITERM = $(SCRIPTS_DIR)run-miniterm.sh $(shell $(WFS))
 # avrdude
 AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
 
@@ -118,3 +120,10 @@ flash_all:
 chip_test:
 	@$(AVRDUDE)
 build_and_flash: all flash
+
+
+#######################################
+# miniterm
+#######################################
+miniterm:
+	@$(MINITERM)
