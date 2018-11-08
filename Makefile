@@ -9,6 +9,8 @@
 TARGET = DEMO
 # chip
 CHIP = atmega328p
+# programmer: -b baudrate, -P port, -d system name of the usb serial converter
+PROGRAMMER = arduino -b 115200 -P $(shell $(WFS) -d Serial)
 # optimalization
 OPT = -Os
 # build dir
@@ -50,11 +52,11 @@ RM = rm -rf
 # wykys scripts
 WTR = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
 WSZ = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --color --size="$(SZ)"
-WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py --device=Serial
+WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py
 # miniterm
 MINITERM = $(SCRIPTS_DIR)run-miniterm.sh $(shell $(WFS))
 # avrdude
-AVRDUDE = avrdude -p $(shell $(WTR)) -c arduino -P $(shell $(WFS))
+AVRDUDE = avrdude -p $(shell $(WTR)) -c $(PROGRAMMER)
 
 #######################################
 # build the application
