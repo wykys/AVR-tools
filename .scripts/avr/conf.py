@@ -114,6 +114,7 @@ mcu_dict = OrderedDict(sorted({
     "atmega3250pa": InfoAVR('32K', '2K', '1K'),
     "atmega328": InfoAVR('32K', '2K', '1K'),
     "atmega328p": InfoAVR('32K', '2K', '1K'),
+    "atmega328pb": InfoAVR('32K', '2K', '1K'),
     "atmega329": InfoAVR('32K', '2K', '1K'),
     "atmega329a": InfoAVR('32K', '2K', '1K'),
     "atmega329p": InfoAVR('32K', '2K', '1K'),
