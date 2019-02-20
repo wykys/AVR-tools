@@ -21,7 +21,6 @@ def desc(path: str) -> str:
 
     return ''.join(doc)
 
-all = ['desc',]
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
