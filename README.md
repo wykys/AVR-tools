@@ -48,6 +48,19 @@ TARGET = the_name_of_your_project
 
 #### Target microcontroller
 The names of available microcontrollers are shown [here](https://gcc.gnu.org/onlinedocs/gcc/AVR-Options.html).
+
+##### First option
+Enter this command into the terminal: `make change_mcu`
+```
+Makefile MCU: atmega128
+VS Code  MCU: atmega128
+Enter new MCU >>> atmega328p
+FLASH: 32 KiB; RAM: 2 KiB; EEPROM: 1 KiB
+```
+
+##### Second option
+You can manually edit the Makefile and your editor's configuration files.
+
 ```makefile
 # find the following line
 CHIP = atmega328p
