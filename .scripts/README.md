@@ -45,17 +45,24 @@ The script translates the names of the microcontrollers used by the AVR toolchai
 m8
 ```
 
+`.scripts/avr-translate-mcu.py -m atmega8a -f define`
+```
+__AVR_ATmega8__
+```
+
 ### Arguments
 `.scripts/avr-translate-mcu.py -h`
 ```
-usage: avr-transtale-mcu [-h] [-m MCU]
+usage: avr-transtale-mcu [-h] [-m MCU] [-f {avrdude,define}]
 
 The script parses the memory information from the linker script and the size
 program, and then displays them in a more readable form.
 
 optional arguments:
-  -h, --help         show this help message and exit
-  -m MCU, --mcu MCU  the name of the microcontroller
+  -h, --help            show this help message and exit
+  -m MCU, --mcu MCU     the name of the microcontroller
+  -f {avrdude,define}, --format {avrdude,define}
+                        output string format, avrdude default
 ```
 
 ## find-serial
