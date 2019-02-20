@@ -2,17 +2,19 @@
 # wykys 2018
 # The script translates the names of the microcontrollers
 # used by the AVR toolchain into the format for avrdude.
+# Another option is to translate the gcc parameter -mmcu
+# to define for <avr/io.h>.
 
 import sys
 import argparse
+from desc import desc
 from avr import Database, NotDefinedMCUError
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='avr-transtale-mcu',
-        description='The script parses the memory information from the linker '
-        'script and the size program, and then displays them in a more readable form.'
+        description=desc(__file__)
     )
     parser.add_argument(
         '-m',
@@ -34,7 +36,8 @@ if __name__ == '__main__':
     )
 
     try:
-        print(Database.get_mcu(parser.parse_args().mcu)[parser.parse_args().format])
+        print(Database.get_mcu(parser.parse_args().mcu)
+              [parser.parse_args().format])
 
     except NotDefinedMCUError as e:
         print(str(e), file=sys.stderr)

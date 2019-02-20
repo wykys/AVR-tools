@@ -11,6 +11,8 @@ from pathlib import Path
 from byte import Byte
 from avr import Database, NotDefinedMCUError
 from colorama import Back, Fore, Style, init
+from desc import desc
+
 init()
 
 
@@ -118,8 +120,7 @@ def create_table(name, use_memory, all_memory, color=True):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='avr-size',
-        description='The script combines memory information from the AVR'
-        ' database and the utility size parsing output. Memory and size' ' information displays in a more readable form.'
+        description=desc(__file__)
     )
     parser.add_argument(
         '-e',

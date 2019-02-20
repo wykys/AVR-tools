@@ -6,6 +6,7 @@
 from sys import stderr
 from argparse import ArgumentParser
 from serial.tools import list_ports
+from desc import desc
 
 
 def serial_dev_list():
@@ -29,8 +30,7 @@ def find_device(name):
 if __name__ == '__main__':
     parser = ArgumentParser(
         prog='find-serial',
-        description='The script prints a port corresponding to'
-        ' the description of the device you are looking for.'
+        description=desc(__file__)
     )
     parser.add_argument(
         '-d',

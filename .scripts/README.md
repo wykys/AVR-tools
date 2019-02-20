@@ -88,6 +88,20 @@ optional arguments:
                         the name of the device
 ```
 
+## desc
+
+### Arguments
+`.scripts/desc.py -h`
+```
+usage: desc [-h] [-p PATH]
+
+Returns the string created from the header file commentary.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  the path of the python file
+```
+
 ## run-ansi-c
 Run program with ANSI C localization. It is necessary to successfully launch the tools from Atmel toolchain version 3.6.1.
 
