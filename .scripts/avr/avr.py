@@ -10,6 +10,7 @@ class InfoAVR(object):
         self.ram = Byte(ram)
         self.eeprom = Byte(eeprom)
         self.avrdude = None
+        self.define = None
 
     def __getitem__(self, name):
         return getattr(self, name.lower())

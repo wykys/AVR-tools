@@ -23,8 +23,18 @@ if __name__ == '__main__':
         help='the name of the microcontroller'
     )
 
+    parser.add_argument(
+        '-f',
+        '--format',
+        dest='format',
+        action='store',
+        default='avrdude',
+        choices=['avrdude', 'define'],
+        help='output string format, avrdude default'
+    )
+
     try:
-        print(Database.get_mcu(parser.parse_args().mcu).avrdude)
+        print(Database.get_mcu(parser.parse_args().mcu)[parser.parse_args().format])
 
     except NotDefinedMCUError as e:
         print(str(e), file=sys.stderr)

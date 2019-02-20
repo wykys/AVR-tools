@@ -36,6 +36,11 @@ class Database(object):
                 if regex.match(mcu):
                     self.mcu_dict[mcu].avrdude = avrdude_param
 
+        for mcu in self.mcu_dict.keys():
+            define = f'__AVR_{mcu.upper()}__'
+            define = define.replace('XMEGA', 'xmega').replace('MEGA', 'mega').replace('TINY', 'tiny')
+            self.mcu_dict[mcu].define = define
+
     def check_mcu_name(self, mcu):
         if mcu in self.mcu_dict:
             return True
