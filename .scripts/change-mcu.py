@@ -20,7 +20,7 @@ def makefile_mcu(mcu=None):
             if mcu is None:
                 return line.split('=')[1].strip()
             else:
-                data[i] = f'CHIP = {mcu}\n'
+                data[i] = 'CHIP = {}\n'.format(mcu)
                 break
 
     if not (mcu is None):
@@ -49,8 +49,8 @@ def vscode_mcu(mcu=None):
 
 if __name__ == '__main__':
     try:
-        print(f'Makefile MCU: {makefile_mcu()}')
-        print(f'VS Code  MCU: {vscode_mcu()}')
+        print('Makefile MCU: {}'.format(makefile_mcu()))
+        print('VS Code  MCU: {}'.format(vscode_mcu()))
 
         mcu_name = input('Enter new MCU >>> ')
         mcu = Database.get_mcu(mcu_name)

@@ -37,7 +37,7 @@ class Database(object):
                     self.mcu_dict[mcu].avrdude = avrdude_param
 
         for mcu in self.mcu_dict.keys():
-            define = f'__AVR_{mcu.upper()}__'
+            define = '__AVR_{}__'.format(mcu.upper())
             define = define.replace('XMEGA', 'xmega').replace('MEGA', 'mega').replace('TINY', 'tiny')
             self.mcu_dict[mcu].define = define
 
