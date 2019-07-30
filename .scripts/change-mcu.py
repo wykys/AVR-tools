@@ -41,7 +41,7 @@ def vscode_mcu(mcu=None):
 
     if not (mcu is None):
         data['configurations'][0]['defines'][i] = mcu
-        data = json.dumps(data)
+        data = json.dumps(data, indent=4, sort_keys=True)
 
         with open(PATH_VSCODE, 'w') as fw:
             fw.write(data)
