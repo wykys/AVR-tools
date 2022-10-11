@@ -11,7 +11,7 @@ def desc(path: str) -> str:
 
     doc = []
     for line in lines:
-        if line[0] is '#':
+        if line[0] == '#':
             if not ('wykys' in line) and not ('#!/' in line):
                 if len(doc):
                     doc.append(' ')
