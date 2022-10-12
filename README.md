@@ -71,13 +71,13 @@ CHIP = the_name_of_your_chip
 #### Code size optimization
 It affects size and speed of the application.
 
-| __OPT__ |  __DESCRIPTION__  |
-|---------|-------------------|
-| -O0 | optimization is off   |
-| -O1 | optimization level 1  |
-| -O2 | optimization level 2  |
-| -O3 | optimization level 3  |
-| -Os | size optimization     |
+| __OPT__ | __DESCRIPTION__      |
+| ------- | -------------------- |
+| -O0     | optimization is off  |
+| -O1     | optimization level 1 |
+| -O2     | optimization level 2 |
+| -O3     | optimization level 3 |
+| -Os     | size optimization    |
 
 ```makefile
 # find the following line
@@ -152,14 +152,14 @@ These scripts are designed to simplify the development of AVR applications. They
 ## Installation
 To run `AVR-tools` it is required to install these packages:
 
-| __NAME__ | __LINK__ |
-|--- | --- |
-| `git` | https://git-scm.com/ |
-| `make` | https://www.gnu.org/software/make/ |
-| `avrdude` | http://savannah.nongnu.org/projects/avrdude |
-| `python3` | https://www.python.org/ |
-| `python3-pip` | https://docs.python.org/3/installing/index.html |
-| `python3-venv` | https://docs.python.org/3/library/venv.html |
+| __NAME__              | __LINK__                                                                      |
+| --------------------- | ----------------------------------------------------------------------------- |
+| `git`                 | https://git-scm.com/                                                          |
+| `make`                | https://www.gnu.org/software/make/                                            |
+| `avrdude`             | http://savannah.nongnu.org/projects/avrdude                                   |
+| `python3`             | https://www.python.org/                                                       |
+| `python3-pip`         | https://docs.python.org/3/installing/index.html                               |
+| `python3-venv`        | https://docs.python.org/3/library/venv.html                                   |
 | `atmel-avr-toolchain` | http://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers |
 
 ### For Debian Ubuntu and their derivatives
@@ -170,14 +170,23 @@ sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/
 
 ### Tested on operating systems
 
-| __NAME__ | __VERSION__ | __RESULT__ |
-|:--- | ---: | :---: |
-| Linux Mint | 19 | OK |
-| Linux Mint | 18.3 | OK |
-| Xubuntu | 16.04 | OK |
-| Debian | 9.5.0 | OK |
-| Windows | 10 | ? |
+| __NAME__   | __VERSION__ | __RESULT__ |
+| :--------- | ----------: | :--------: |
+| Linux Mint |          19 |     OK     |
+| Linux Mint |        18.3 |     OK     |
+| Xubuntu    |       16.04 |     OK     |
+| Debian     |       9.5.0 |     OK     |
+| Ubuntu     |     22.04.1 |     OK     |
+| Windows    |          10 |     ?      |
 
+
+#### Ubuntu 22.04
+
+If you are using an arduino clone with a USB/UART __CH430__ converter, you must uninstall the system support for braille displays, or the converter will not show up as `/dev/ttyUSB*`.
+
+```bash
+sudo apt remove brltty
+```
 
 ## Updates
 With git you can get a newer version, but if you already have a project, I recommend that you make a backup first because there may be a collision between the files.
